@@ -9,7 +9,3 @@ bold = usr.bold
 
 hand_ratio = info.hand_ratio
 hand_space = info.hand_space
-
-print(f"board_size = {board_size}")
-print(f"jpg_size = {jpg_size}")
-print(f"bold = {bold}")

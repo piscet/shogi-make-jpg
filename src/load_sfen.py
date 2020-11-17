@@ -44,7 +44,6 @@ class Board:
             # 情報を入力
             piece, numOf = param
             turn = piece.isupper()
-            # print(turn, piece)
             piece = piece.lower()
             self.hand[turn][piece] = numOf
 

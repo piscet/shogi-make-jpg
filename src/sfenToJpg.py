@@ -137,7 +137,6 @@ class MakeJpg:
     def set_piece(self):
         # 盤面に駒を並べる
         for coord, turn, isGrade, piece in self.sfen:
-            print(coord, turn, isGrade, piece)
             self.write_piece(coord, turn, isGrade, piece)
 
     def write_piece(self, coord, turn, isGrade, piece):
@@ -184,16 +183,16 @@ class MakeJpg:
             num_pos, num, font = self.font, fill = (0), outline = (255)
         )
 
-    def output(self, name=None):
-        self.board.save('result.jpg')
+    def show(self):
+        self.board.show()
+
+    def output(self, name='result'):
+        self.board.save(f'{name}.jpg')
 
 
 if __name__ == "__main__":
-    # test = 'sfen lnsgkgsnl/1r5b1/ppppppppp/9/9/9/PPPPPPPPP/1B5R1/LNSGKGSNL b - 1'
     test = 'lnsg4l/4k1+B2/p1pppp2p/6pb1/7P1/2P4r1/P2PPPP1P/2S1K2S1/+r2G1G1NL b S2N2Pglp 1'
     board = MakeJpg(test)
     plt.imshow(board.board)
     plt.show()
     board.output()
-    print(board.sfen.info.hand)
-    # import pdb; pdb.set_trace()
