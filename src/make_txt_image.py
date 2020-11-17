@@ -20,7 +20,7 @@ class Piece_IMG:
             img = Image.new("L", self.size, "white")
             draw = ImageDraw.Draw(img)
 
-            h, w = draw.textsize(txt, font=self.font)
+            w, h = draw.textsize(txt, font=self.font)
             txt_image = Image.new("L", (w, h), (255))
             txt_draw = ImageDraw.Draw(txt_image)
             txt_draw.text((0, 0), txt, font = self.font, fill=(0))
@@ -38,7 +38,7 @@ class Piece_IMG:
             img = Image.new("L", self.size, "white")
             draw = ImageDraw.Draw(img)
 
-            h, w = draw.textsize(txt, font=self.font)
+            w, h = draw.textsize(txt, font=self.font)
             txt_image = Image.new("L", (w, h), (255))
             txt_draw = ImageDraw.Draw(txt_image)
             txt_draw.text((0, 0), txt, font = self.font, fill=(0))
