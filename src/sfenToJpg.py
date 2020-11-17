@@ -1,5 +1,6 @@
 # param
 import config as cnf
+import info
 from load_sfen import ParseSfen
 from make_txt_image import Piece_IMG
 
@@ -129,6 +130,10 @@ class MakeJpg:
             width = 3
         )
 
+        # font
+        self.font = ImageFont.truetype(info.font_pth, info.font_size_number)
+
+
     def set_piece(self):
         # 盤面に駒を並べる
         for coord, turn, isGrade, piece in self.sfen:
@@ -169,9 +174,14 @@ class MakeJpg:
         img = self.piece_img.get_img(piece, turn, False)
         self.board.paste(img, pos, ImageOps.invert(img))
         # 数字の表示
+        num = str(num)
+        w, h = self.draw.textsize(num, font = self.font)
         num_pos = (
-            pos[0] + self.hand_mass_size_width,
-            pos[1] + self.hand_mass_size_height
+            pos[0] + self.hand_mass_size_width - w // 2,
+            pos[1] + self.hand_mass_size_height - h // 2 - 2
+        )
+        self.draw.text(
+            num_pos, num, font = self.font, fill = (0), outline = (255)
         )
 
     def output(self, name=None):

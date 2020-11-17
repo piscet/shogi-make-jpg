@@ -35,5 +35,5 @@ alphaToJa_nari = {
 }
 
 font_size_board = 42
-# font_size_hand = 15
+font_size_number = 30
 font_pth = 'C:\\Windows\\Fonts\\Arial\\BIZ-UDGothicR.ttc'
